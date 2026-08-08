@@ -41,22 +41,37 @@ const handleAddPatient = async (formData) => {
   const newPatient = await patientService.create(formData)
   setPatients([...patients, newPatient])
 }
+
+const handleDeletePatient = async (patientId) => {
+  try {
+    await patientService.deletePatient(patientId)
+    
+    const filteredPatients = patients.filter((patient) => {
+      return patient._id !== patientId
+    })
+    setPatients(filteredPatients)
+    navigate('/patients')
+  } catch (err) {
+    console.error('Error deleting patient:', err)
+  }
+}
  
 
   return (
     <div>
       <Nav user={user} setUser={setUser}/>
       
-    <PatientList patients={patients} handleAddPatient={handleAddPatient}/>
       <main className="app-main">
       <Routes>
 
-      // in there is user signed go to dashboard else to landing
+      // if there is user signed go to dashboard else to landing
       <Route path='/' element={user ? <Dashboard user={user} /> : <Landing />} />
 
         <Route path='/sign-up' element={<SignUpForm setUser={setUser}/>} />
 
         <Route path='/sign-in' element={<SignInForm setUser={setUser}/>}/>
+
+        <Route path='/patients' element={ <PatientList patients={patients} handleAddPatient={handleAddPatient} handleDeletePatient={handleDeletePatient}/>}/>
       </Routes>
       </main>
     </div>

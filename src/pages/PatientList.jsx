@@ -22,12 +22,13 @@ const PatientList = (props) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault()
     await props.handleAddPatient(formData)
-    // navigate('/patients')
+    setFormData(initialState)
   }
+
 
     return(
         <main>
-        <section>
+        <section className=''>
             <h2>New Patient</h2>
       <form onSubmit={handleSubmit}>
         <label>Full Name</label>
@@ -89,6 +90,9 @@ const PatientList = (props) => {
             {props.patients.map((patient)=> (
                 <>
                 <h3>👤{patient.username} 🪪{patient.CPR} </h3>
+                <button onClick={() =>                                  props.handleDeletePatient(patient._id)}
+                    >Delete</button>
+                    <hr />
                 </>
             ))}
         </section>

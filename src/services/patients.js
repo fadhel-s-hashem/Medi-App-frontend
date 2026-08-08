@@ -28,8 +28,23 @@ const create = async (PatientFormData) => {
   }
 }
 
+const deletePatient = async (patientId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${patientId}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+    return res.json()
+  } catch (error) {
+    console.error('Error deleting patient:', error)
+  }
+}
+
 export {
   index,
   create,
+  deletePatient,
 
 }
