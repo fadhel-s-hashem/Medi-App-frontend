@@ -1,10 +1,10 @@
 
 import { useState, useEffect } from 'react'
-import './App.css'
-import { Routes, Route } from 'react-router';
+import { Routes, Route, useNavigate } from 'react-router';
 
 import * as patientService from './services/patients'
 
+import './App.css'
 import SignUpForm from './pages/SignUpForm';
 import SignInForm from './pages/SignInForm';
 import Landing from './pages/Landing';
@@ -19,6 +19,7 @@ const getUserFromToken = () => {
  }
 
 const App = () => {
+  const navigate = useNavigate
   
   const [user, setUser] = useState(getUserFromToken())
   const [patients, setPatients] =useState([])
@@ -35,13 +36,18 @@ const App = () => {
 
   if (user) fetchAllPatients()
 }, [user])
+
+const handleAddPatient = async (formData) => {
+  const newPatient = await patientService.create(formData)
+  setPatients([...patients, newPatient])
+}
  
 
   return (
     <div>
       <Nav user={user} setUser={setUser}/>
       
-    <PatientList patients={patients}/>
+    <PatientList patients={patients} handleAddPatient={handleAddPatient}/>
       <main className="app-main">
       <Routes>
 
