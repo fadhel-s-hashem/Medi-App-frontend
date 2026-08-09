@@ -89,7 +89,7 @@ const handleUpdatePatient = async (patientId, formData) => {
     <div>
       <Nav user={user} setUser={setUser}/>
       <main className="app-main">
-        <NewScheduel/>
+   
       <Routes>
 
       // if there is user signed go to dashboard else to landing
@@ -106,6 +106,8 @@ const handleUpdatePatient = async (patientId, formData) => {
 
       
         <Route path='/schedules' element={<Scheduels scheduels={scheduels}/>}/>
+
+        <Route path='/schedules/new' element={<NewScheduel scheduels={scheduels}/>}/>
         
         <Route path="*" element={<h2>Page Not Found 👎</h2>} />
       </Routes>
