@@ -16,6 +16,7 @@ import PatientList from './pages/PatientList';
 import PatientRedetail from './pages/PatientRedetail';
 import Scheduels from './pages/Scheduels';
 import NewScheduel from './pages/NewScheduel';
+import EditSchedule from './pages/EditSchedule';
 
 const getUserFromToken = () => {
   const token = localStorage.getItem('token')
@@ -88,13 +89,25 @@ const handleUpdatePatient = async (patientId, formData) => {
   setScheduels([...scheduels, addScheduel])
  
 }
+
+const handleUpdateSchedule = async (scheduleId, formData) => {
+ 
+    console.log('scheduleId: ', scheduleId)
+    console.log('formData: ', formData)
+    const updatedSchedule = await scheduleService.updateSchedule(scheduleId, formData)
+    const updatedSchedules = schedules.map((schedule) => {
+      return schedule._id === scheduleId ? updatedSchedule : schedule
+    })
+
+    setSchedules(updatedSchedules)
+  }
  
 
   return (
     <div>
       <Nav user={user} setUser={setUser}/>
       <main className="app-main">
-   
+      <EditSchedule/>
       <Routes>
 
       // if there is user signed go to dashboard else to landing
