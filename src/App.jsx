@@ -94,12 +94,12 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
  
     console.log('scheduleId: ', scheduleId)
     console.log('formData: ', formData)
-    const updatedSchedule = await scheduleService.updateSchedule(scheduleId, formData)
-    const updatedSchedules = schedules.map((schedule) => {
-      return schedule._id === scheduleId ? updatedSchedule : schedule
+    const updateScheduleList = await scheduelService.update(scheduleId, formData)
+    const updatedSchedules = scheduels.map((schedule) => {
+      return schedule._id === scheduleId ? updateScheduleList : schedule
     })
 
-    setSchedules(updatedSchedules)
+    setScheduels(updatedSchedules)
   }
  
 
@@ -107,7 +107,7 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
     <div>
       <Nav user={user} setUser={setUser}/>
       <main className="app-main">
-      <EditSchedule/>
+      {/* <EditSchedule handleUpdateSchedule={handleUpdateSchedule}/> */}
       <Routes>
 
       // if there is user signed go to dashboard else to landing
@@ -126,6 +126,8 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
         <Route path='/schedules' element={<Scheduels scheduels={scheduels}/>}/>
 
         <Route path='/schedules/new' element={<NewScheduel scheduels={scheduels} handleAddScheduel={handleAddScheduel}/>}/>
+
+        <Route path='/schedules/:scheduleId' element={<EditSchedule handleUpdateSchedule={handleUpdateSchedule}/>}/>
         
         <Route path="*" element={<h2>Page Not Found 👎</h2>} />
       </Routes>

@@ -43,8 +43,20 @@ const update = async (scheduelId ,scheduleFormData) => {
   }
 }
 
+const show = async (scheduelId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${scheduelId}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
   export {
     index,
     create,
     update,
+    show,
   }

@@ -21,23 +21,17 @@ const PatientRedetail = (props)=> {
 
  const [formData, setFormData] = useState(initialState)
 
+ // to make form input = the added data
   useEffect(() => {
     const fetchPatient = async () => {
       try {
         const patientData = await patientService.show(patientId)
         setPatient(patientData)
-
-        // to make the detail show in input
-        setFormData({
-          username: patientData.username || '',
-          CPR: patientData.CPR || '',
-          phoneNumber: patientData.phoneNumber || patientData.phoneNumber || '',
-          gender: patientData.gender || 'male',
-          // Format date to normal way for <input type="date" />
-          birthDate: patientData.birthDate ? patientData.birthDate.split('T')[0] : '',
-        })
+        
+        setFormData(patientData)
+        setFormData({...patientData, birthDate: patientData.birthDate ? patientData.birthDate.split('T')[0] : ''})
       } catch (err) {
-        console.error('Error fetching patient detail:', err)
+        console.error(err)
       }
     }
 
