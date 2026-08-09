@@ -15,6 +15,7 @@ import Nav from './components/Nav'
 import PatientList from './pages/PatientList';
 import PatientRedetail from './pages/PatientRedetail';
 import Scheduels from './pages/Scheduels';
+import NewScheduel from './pages/NewScheduel';
 
 const getUserFromToken = () => {
   const token = localStorage.getItem('token')
@@ -88,6 +89,7 @@ const handleUpdatePatient = async (patientId, formData) => {
     <div>
       <Nav user={user} setUser={setUser}/>
       <main className="app-main">
+        <NewScheduel/>
       <Routes>
 
       // if there is user signed go to dashboard else to landing

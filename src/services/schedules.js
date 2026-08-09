@@ -11,6 +11,23 @@ const index = async () => {
   }
 }
 
+const create = async (scheduleFormData) => {
+  try {
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(scheduleFormData),
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
   export {
     index,
+    create,
   }
