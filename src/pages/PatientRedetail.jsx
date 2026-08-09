@@ -27,10 +27,11 @@ const PatientRedetail = (props)=> {
         const patientData = await patientService.show(patientId)
         setPatient(patientData)
 
+        // to make the detail show in input
         setFormData({
           username: patientData.username || '',
           CPR: patientData.CPR || '',
-          phoneNumber: patientData.phoneNumber || patientData.phroneNumber || '',
+          phoneNumber: patientData.phoneNumber || patientData.phoneNumber || '',
           gender: patientData.gender || 'male',
           // Format date to normal way for <input type="date" />
           birthDate: patientData.birthDate ? patientData.birthDate.split('T')[0] : '',
@@ -49,7 +50,7 @@ const PatientRedetail = (props)=> {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault()
-    await props.handleUpdatePatient(formData)
+    await props.handleUpdatePatient(patientId,formData)
     navigate('/patients')
   }
 
@@ -59,7 +60,7 @@ const PatientRedetail = (props)=> {
         <main>
             
         <section className=''>
-            <h2>Edit <span className='blue'>{patient.username}</span> Patient</h2>
+            <h2>Edit <span className='blue'>{patient.username}</span></h2>
       <form onSubmit={handleSubmit}>
         <label>Full Name</label>
         <input

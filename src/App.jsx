@@ -59,7 +59,16 @@ const handleDeletePatient = async (patientId) => {
   }
 }
 
-
+const handleUpdatePatient = async (patientId, formData) => {
+    console.log('patientId: ', patientId)
+    console.log('formData: ', formData)
+   const updatePatientinfo = await patientService.update(patientId, formData)
+   const updatedPatient= patients.map((patient) => {
+      return patientId === patient._id ? updatePatientinfo : patient
+    })
+    setPatients(updatedPatient)
+    // navigate(`/patients/${patientId}`)
+  }
  
 
   return (

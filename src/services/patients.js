@@ -53,10 +53,26 @@ const show = async (patientId) => {
   }
 }
 
+const update = async (patientId, PatientFormData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${patientId}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(PatientFormData),
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 export {
   index,
   create,
   deletePatient,
   show,
+  update,
 
 }
