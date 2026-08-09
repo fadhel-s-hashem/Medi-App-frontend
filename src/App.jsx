@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router';
+import { useParams } from 'react-router';
 
 import * as patientService from './services/patients'
 
@@ -11,6 +12,7 @@ import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
 import Nav from './components/Nav'
 import PatientList from './pages/PatientList';
+import PatientRedetail from './pages/PatientRedetail';
 
 const getUserFromToken = () => {
   const token = localStorage.getItem('token')
@@ -20,6 +22,7 @@ const getUserFromToken = () => {
 
 const App = () => {
   const navigate = useNavigate
+  const { patientId } = useParams()
   
   const [user, setUser] = useState(getUserFromToken())
   const [patients, setPatients] =useState([])
@@ -72,6 +75,11 @@ const handleDeletePatient = async (patientId) => {
         <Route path='/sign-in' element={<SignInForm setUser={setUser}/>}/>
 
         <Route path='/patients' element={ <PatientList patients={patients} handleAddPatient={handleAddPatient} handleDeletePatient={handleDeletePatient}/>}/>
+
+      
+        <Route path='/patients/:patientId' element={<PatientRedetail patients={patients} setPatients={setPatients}/>}/>
+        
+        <Route path="*" element={<h2>Page Not Found 👎</h2>} />
       </Routes>
       </main>
     </div>

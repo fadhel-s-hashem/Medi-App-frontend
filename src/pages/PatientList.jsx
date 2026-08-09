@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate } from 'react-router'
+import { Routes, Route, useNavigate, Link } from 'react-router'
 import { useParams } from 'react-router'
 
 
@@ -89,10 +89,13 @@ const PatientList = (props) => {
         <section>
             {props.patients.map((patient)=> (
                 <>
+                { console.log(patient._id)}
+                <Link to={`/patients/${patient._id}`}>
                 <h3>👤{patient.username} 🪪{patient.CPR} </h3>
                 <button onClick={() =>                                  props.handleDeletePatient(patient._id)}
                     >Delete</button>
                     <hr />
+                    </Link>
                 </>
             ))}
         </section>

@@ -93,3 +93,12 @@ button:disabled {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   margin: 0 auto;
 }
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 8px solid #e0e0e0;
+  border-top-color: #1769ba;
+  border-radius: 50%;
+  animation: spin 1.0s linear infinite;
+}
