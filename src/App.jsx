@@ -87,7 +87,6 @@ const handleUpdatePatient = async (patientId, formData) => {
   return (
     <div>
       <Nav user={user} setUser={setUser}/>
-      <Scheduels scheduels={scheduels}/>
       <main className="app-main">
       <Routes>
 
@@ -102,6 +101,9 @@ const handleUpdatePatient = async (patientId, formData) => {
 
       
         <Route path='/patients/:patientId' element={<PatientRedetail patients={patients} setPatients={setPatients} handleUpdatePatient={handleUpdatePatient}/>}/>
+
+      
+        <Route path='/schedules' element={<Scheduels scheduels={scheduels}/>}/>
         
         <Route path="*" element={<h2>Page Not Found 👎</h2>} />
       </Routes>
