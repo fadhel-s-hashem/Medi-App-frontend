@@ -72,7 +72,6 @@ const handleUpdatePatient = async (patientId, formData) => {
       return patientId === patient._id ? updatePatientinfo : patient
     })
     setPatients(updatedPatient)
-    // navigate(`/patients/${patientId}`)
   }
 
   // for Shedules handeler ==================================
