@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router';
 import { useParams } from 'react-router';
 
 import * as patientService from './services/patients'
+import * as ScheduelService from './services/schedules'
 
 import './App.css'
 import SignUpForm from './pages/SignUpForm';
