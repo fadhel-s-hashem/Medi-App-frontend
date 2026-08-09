@@ -2,26 +2,35 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router'
 import { useParams } from 'react-router'
 
-const NewScheduel= () => {
+const NewScheduel= (props) => {
     const navigate = useNavigate()
 
     const initialState = {
     doctorName: '',
     specialty: '',
     date: '',
-    shiftStart: '08:00 AM',
-    shiftEnd: '4:00 PM',
+    shiftStart: '',
+    shiftEnd: '',
   }
 
     const [formData, setFormData] = useState(initialState)
 
-    const handleChange = () => {}
+    const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (evt) => {
+    evt.preventDefault()
+    await props.handleAddScheduel(formData)
+    setFormData(initialState)
+     navigate('/schedules')
+  }
 
     return(
         <main>
            
       <h2>Create Doctor Schedule</h2>
-      <form >
+      <form onSubmit={handleSubmit}>
         <label>Doctor Name</label>
         <input
           required
@@ -41,7 +50,6 @@ const NewScheduel= () => {
 
         <label>Date</label>
         <input
-          required
           type="date"
           name="date"
           value={formData.date}

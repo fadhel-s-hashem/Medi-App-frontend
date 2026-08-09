@@ -24,7 +24,7 @@ const getUserFromToken = () => {
  }
 
 const App = () => {
-  const navigate = useNavigate
+  const navigate = useNavigate()
   const { patientId } = useParams()
   
   const [user, setUser] = useState(getUserFromToken())
@@ -83,6 +83,12 @@ const handleUpdatePatient = async (patientId, formData) => {
     }
     if (user) fetchAllScheduels()
   }, [user])
+
+  const handleAddScheduel = async (formData) => {
+  const addScheduel = await scheduelService.create(formData)
+  setScheduels([...scheduels, addScheduel])
+ 
+}
  
 
   return (
@@ -107,7 +113,7 @@ const handleUpdatePatient = async (patientId, formData) => {
       
         <Route path='/schedules' element={<Scheduels scheduels={scheduels}/>}/>
 
-        <Route path='/schedules/new' element={<NewScheduel scheduels={scheduels}/>}/>
+        <Route path='/schedules/new' element={<NewScheduel scheduels={scheduels} handleAddScheduel={handleAddScheduel}/>}/>
         
         <Route path="*" element={<h2>Page Not Found 👎</h2>} />
       </Routes>
