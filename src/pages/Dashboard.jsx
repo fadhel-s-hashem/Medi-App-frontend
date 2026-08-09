@@ -26,11 +26,11 @@ const Dashboard = (props) => {
             <h1> wlcome, {props.user.username}</h1>
 
             <p className="error">{message}</p>
-      <ul>
+      {/* <ul>
         {users.map((user) => (
           <li>{user.username}</li>
         ))}
-      </ul>
+      </ul> */}
             
         </section>
     )

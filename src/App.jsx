@@ -4,7 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router';
 import { useParams } from 'react-router';
 
 import * as patientService from './services/patients'
-import * as ScheduelService from './services/schedules'
+import * as scheduelService from './services/schedules'
 
 import './App.css'
 import SignUpForm from './pages/SignUpForm';
@@ -14,6 +14,7 @@ import Dashboard from './pages/Dashboard';
 import Nav from './components/Nav'
 import PatientList from './pages/PatientList';
 import PatientRedetail from './pages/PatientRedetail';
+import Scheduels from './pages/Scheduels';
 
 const getUserFromToken = () => {
   const token = localStorage.getItem('token')
@@ -27,7 +28,9 @@ const App = () => {
   
   const [user, setUser] = useState(getUserFromToken())
   const [patients, setPatients] =useState([])
+  const [scheduels, setScheduels] = useState([])
 
+  // for patient handeler ==================================
   useEffect(() => {
   const fetchAllPatients = async () => {
     try {
@@ -70,12 +73,21 @@ const handleUpdatePatient = async (patientId, formData) => {
     setPatients(updatedPatient)
     // navigate(`/patients/${patientId}`)
   }
+
+  // for Shedules handeler ==================================
+  useEffect(() => {
+    const fetchAllScheduels = async () => {
+      const scheduelsData = await scheduelService.index()
+      setScheduels(scheduelsData)
+    }
+    if (user) fetchAllScheduels()
+  }, [user])
  
 
   return (
     <div>
       <Nav user={user} setUser={setUser}/>
-      
+      <Scheduels scheduels={scheduels}/>
       <main className="app-main">
       <Routes>
 
