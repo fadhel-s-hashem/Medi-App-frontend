@@ -12,12 +12,15 @@ const Nav = (props) => {
 
   return (
         <nav>
-            <Link className="nav-brand" to="/">App Name</Link>
             { props.user ? (
+                <>
+                    <li>Welcome, <span className="blue">{props.user.username}</span></li>
                 <ul>
-                    <li>Welcome, {props.user.username}!</li>
+                    <li><Link className="nav-brand" to="/">Home</Link></li>
+                    <li><Link to="/patients">patients</Link></li>
                     <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
                 </ul>
+                </>
             ) : (
             <ul>
                 <li>
