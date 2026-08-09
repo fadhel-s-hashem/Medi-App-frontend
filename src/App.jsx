@@ -58,6 +58,8 @@ const handleDeletePatient = async (patientId) => {
     console.error('Error deleting patient:', err)
   }
 }
+
+
  
 
   return (
@@ -77,7 +79,7 @@ const handleDeletePatient = async (patientId) => {
         <Route path='/patients' element={ <PatientList patients={patients} handleAddPatient={handleAddPatient} handleDeletePatient={handleDeletePatient}/>}/>
 
       
-        <Route path='/patients/:patientId' element={<PatientRedetail patients={patients} setPatients={setPatients}/>}/>
+        <Route path='/patients/:patientId' element={<PatientRedetail patients={patients} setPatients={setPatients} handleUpdatePatient={handleUpdatePatient}/>}/>
         
         <Route path="*" element={<h2>Page Not Found 👎</h2>} />
       </Routes>

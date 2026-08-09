@@ -10,22 +10,111 @@ const PatientRedetail = (props)=> {
 
     const [patient, setPatient] = useState(null)
 
-
     
-useEffect(() => {
-        const fetchpatient = async (patientId) => {
-            const patientData = await patientService.show(patientId)
-            setPatient(patientData)
-        }
-        fetchpatient(patientId)
-    }, [patientId])
+    const initialState = {
+   username: "" ,
+   CPR: '',
+   phoneNumber: '',
+   gender: 'male',
+   birthDate: '',
+ }
+
+ const [formData, setFormData] = useState(initialState)
+
+  useEffect(() => {
+    const fetchPatient = async () => {
+      try {
+        const patientData = await patientService.show(patientId)
+        setPatient(patientData)
+
+        setFormData({
+          username: patientData.username || '',
+          CPR: patientData.CPR || '',
+          phoneNumber: patientData.phoneNumber || patientData.phroneNumber || '',
+          gender: patientData.gender || 'male',
+          // Format date to normal way for <input type="date" />
+          birthDate: patientData.birthDate ? patientData.birthDate.split('T')[0] : '',
+        })
+      } catch (err) {
+        console.error('Error fetching patient detail:', err)
+      }
+    }
+
+    if (patientId) fetchPatient()
+  }, [patientId])
+
+ const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (evt) => {
+    evt.preventDefault()
+    await props.handleUpdatePatient(formData)
+    navigate('/patients')
+  }
 
 
     if (!patient) return <main><div className="loader"></div></main>
     return(
         <main>
             
-            <h2>{patient.CPR}</h2>
+        <section className=''>
+            <h2>Edit <span className='blue'>{patient.username}</span> Patient</h2>
+      <form onSubmit={handleSubmit}>
+        <label>Full Name</label>
+        <input
+          required
+          type='text'
+          name='username'
+          id='username-input'
+          value={formData.username}
+          onChange={handleChange}
+        />
+
+        <label>CPR</label>
+        <input
+          required
+          type='text'
+          name='CPR'
+          id='cpr-input'
+          value={formData.CPR}
+          onChange={handleChange}
+        />
+
+        <label>Phone Number</label>
+        <input
+          required
+          type='text'
+          name='phoneNumber'
+          id='phone-input'
+          value={formData.phoneNumber}
+          onChange={handleChange}
+        />
+
+        <label>Gender</label>
+        <select
+          required
+          name='gender'
+          id='gender-input'
+          value={formData.gender}
+          onChange={handleChange}
+        >
+          <option value='male'>Male</option>
+          <option value='female'>Female</option>
+        </select>
+
+        <label>Birth Date</label>
+        <input
+          type='date'
+          name='birthDate'
+          id='birthdate-input'
+          value={formData.birthDate}
+          onChange={handleChange}
+        />
+
+        <button type='submit'>save change</button>
+      </form>
+        </section>
 
         </main>
 

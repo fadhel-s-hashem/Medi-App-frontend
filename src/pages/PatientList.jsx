@@ -15,9 +15,10 @@ const PatientList = (props) => {
 
   const [formData, setFormData] = useState(initialState)
 
-  const handleChange = (evt) => {
-    setFormData({ ...formData, [evt.target.name]: evt.target.value })
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
+
 
   const handleSubmit = async (evt) => {
     evt.preventDefault()
