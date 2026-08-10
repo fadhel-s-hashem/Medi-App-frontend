@@ -46,21 +46,20 @@ const timeSlots = generate24HourSlots()
   ]
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#f4f6f8' }}>
-      <h2 style={{ marginBottom: '20px', color: '#1e293b' }}>Daily Doctor Schedules</h2>
+    <div style={{ padding: '20px', backgroundColor: '#f4f6f8' }}>
+      <h2 >Daily Doctor Schedules</h2>
 
       {/* Main horizontal container for doctors */}
-      <div style={{ display: 'flex', gap: '20px', overflowX: 'auto', paddingBottom: '10px' }}>
+      <div style={{ display: 'flex', gap: '5dvh', overflowX: 'auto', paddingBottom: '10px' }}>
         {mockSchedules.map((doc) => (
           <div
             key={doc.id}
             style={{
-              width: '320px',
+              width: '75dvh',
               backgroundColor: '#ffffff',
               border: '1px solid #cbd5e1',
               borderRadius: '6px',
               flexShrink: 0,
-              boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
             }}
           >
             {/* Top Doctor Profile Header */}
@@ -78,16 +77,15 @@ const timeSlots = generate24HourSlots()
             >
               <div
                 style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: '4px',
+                  width: '11dvh',
+                  height: '11dvh',
                   backgroundColor: '#94a3b8',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#fff',
                   fontWeight: 'bold',
-                  fontSize: '18px',
+                  fontSize: '5dvh',
                 }}
               >
                 👨‍⚕️
@@ -117,41 +115,40 @@ const timeSlots = generate24HourSlots()
                     }}
                   >
                     {/* Time Label Column */}
-                    <div
+                    <button
                       style={{
-                        width: '60px',
-                        padding: '6px',
+                        width: '15dvh',
+                        padding: '2dvh',
                         backgroundColor: '#f8fafc',
-                        borderRight: '1px solid #e2e8f0',
-                        fontSize: '12px',
-                        fontWeight: '600',
-                        color: '#475569',
-                        textAlign: 'center',
+                        borderRight: 'solid #5e6165',
+                        borderRadius: '0dvh',
+                        color: '#3d444e',
+                        
                       }}
                     >
                       {time}
-                    </div>
+                    </button>
 
                     {/* Patient Cards Container */}
-                    <div style={{ flex: 1, padding: '2px 4px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                    <div style={{ flex: 1, padding: '1dvh', display: 'flex', flexDirection: 'column', gap: '2px' }}>
                       {slotAppointments.map((patient, idx) => (
                         <div
                           key={idx}
                           style={{
                             backgroundColor: '#38bdf8',
-                            color: '#0f172a',
-                            padding: '3px 6px',
-                            borderRadius: '3px',
+                            color: 'black',
+                            padding: '0.7dvh',
+                            borderRadius: '1dvh',
                             fontSize: '11px',
                             fontWeight: 'bold',
                             display: 'flex',
                             justifyContent: 'space-between',
                             alignItems: 'center',
-                            border: '1px solid #0284c7',
+                            border: '0.4dvh solid #0284c7',
                           }}
                         >
                           <span>{patient.name}</span>
-                          <span style={{ fontSize: '10px', opacity: 0.8 }}>CPR: {patient.cpr}</span>
+                          <span>CPR: {patient.cpr}</span>
                         </div>
                       ))}
                     </div>
