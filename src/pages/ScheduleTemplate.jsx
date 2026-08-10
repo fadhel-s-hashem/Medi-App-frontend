@@ -53,8 +53,8 @@ const ScheduleTemplate = () => {
         {mockSchedules.map((doc) => (
           <div key={doc.id} className="doctor-card">
             {/* Top Doctor Profile Header */}
-            <div className="doctor-outer-profile">
-              <div className="doctor-inner-profile">👨‍⚕️</div>
+            <div className="doctorCard">
+              <div className="doctorImage">👨‍⚕️</div>
               <div className="doctor-details">
                 <div className="doctor-info">{doc.doctorName}</div>
                 <div className="doctor-info">

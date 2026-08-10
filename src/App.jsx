@@ -110,7 +110,7 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
       <Nav user={user} setUser={setUser}/>
       <main className="app-main">
       {/* <DailySchedule/> */}
-      <ScheduleTemplate/>
+      {/* <ScheduleTemplate/> */}
       <Routes>
 
       // if there is user signed go to dashboard else to landing

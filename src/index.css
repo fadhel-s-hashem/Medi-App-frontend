@@ -80,23 +80,23 @@ h1, h2, h3, p {
 .doctor-card {
   width: 75dvh;
   background-color: #ffffff;
-  border: 1px solid #cbd5e1;
+  border: 0.5dvh solid #cbd5e1;
   border-radius: 6px;
   flex-shrink: 0;
 }
 
-.doctor-outer-profile {
+.doctorCard {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px;
+  gap: 5dvh;
+  padding: 2.5dvh;
   background-color: #e2e8f0;
-  border-bottom: 1px solid #cbd5e1;
+  border-bottom: 0.7dvh solid #cbd5e1;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
-.doctor-inner-profile {
+.doctorImage {
   width: 11dvh;
   height: 11dvh;
   background-color: #94a3b8;
@@ -136,7 +136,11 @@ h1, h2, h3, p {
   background-color: #f8fafc;
   border-right: solid 1px #5e6165;
   border-radius: 0dvh;
-  color: #3d444e;
+  color: #353636;
+}
+
+.time-button:hover{
+  background-color: rgb(216, 215, 215);
 }
 
 .patient-card-container {
