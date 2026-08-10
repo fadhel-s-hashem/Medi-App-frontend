@@ -17,6 +17,8 @@ import PatientRedetail from './pages/PatientRedetail';
 import Scheduels from './pages/Scheduels';
 import NewScheduel from './pages/NewScheduel';
 import EditSchedule from './pages/EditSchedule';
+import DailySchedule from './pages/DailySchedule';
+import ScheduleTemplate from './pages/ScheduleTemplate';
 
 const getUserFromToken = () => {
   const token = localStorage.getItem('token')
@@ -107,7 +109,8 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
     <div>
       <Nav user={user} setUser={setUser}/>
       <main className="app-main">
-      {/* <EditSchedule handleUpdateSchedule={handleUpdateSchedule}/> */}
+      {/* <DailySchedule/> */}
+      <ScheduleTemplate/>
       <Routes>
 
       // if there is user signed go to dashboard else to landing

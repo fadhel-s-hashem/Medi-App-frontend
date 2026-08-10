@@ -5,9 +5,15 @@ import { Link } from 'react-router'
 
 const Scheduels = (props) => {
 
+   
+
     return(
 
+        
+
         <main>
+
+            
             
             {props.scheduels.map((scheduel) => (
                 <>
