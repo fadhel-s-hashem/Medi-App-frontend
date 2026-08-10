@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 // Sample data for the daily schedule
 const scheduleData = [
