@@ -56,7 +56,7 @@ const PatientRedetail = (props)=> {
            <section className="patient-profile-card">
         <div className="profile-header">
           <div className="avatar-badge">
-            {patient.gender === 'female' ? '👩' : '👨'}
+            {patient.gender === 'male' ? '🧔🏻‍♂️' : '👩🏻'}
           </div>
           <div className="profile-title">
             <h2>{patient.username}</h2>
@@ -92,6 +92,8 @@ const PatientRedetail = (props)=> {
           </div>
         </div>
       </section>
+
+          <br />
             
         <section className=''>
             <h2>Edit <span className='blue'>{patient.username}</span></h2>
