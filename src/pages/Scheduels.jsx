@@ -66,10 +66,10 @@ const Scheduels = (props) => {
 
                 {/* Patient Cards Container */}
                 <div className="patient-card-container">
-                  {slotAppointments.map((patient, idx) => (
+                  {slotAppointments.map((app) => (
                     <div className="patient-card">
-                      <span>{patient.name || patient.username}</span>
-                      <span>CPR: {patient.cpr || patient.CPR}</span>
+                      <span>{app.patient.username}</span>
+                      <span>CPR: {app.patient.CPR}</span>
                     </div>
                   ))}
                 </div>
