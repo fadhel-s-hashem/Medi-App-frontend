@@ -5,10 +5,12 @@ import { Link } from 'react-router'
 
 const NewApp = (props) => {
 
+    const navigate = useNavigate()
+ 
     return(
         <main>
          
-
+        new app page
         </main>
 
     )

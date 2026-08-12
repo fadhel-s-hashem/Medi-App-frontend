@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 
 import * as patientService from './services/patients'
 import * as scheduelService from './services/schedules'
+import * as appService from './services/appointments'
 
 import './App.css'
 import SignUpForm from './pages/SignUpForm';
@@ -30,6 +31,7 @@ const getUserFromToken = () => {
 const App = () => {
   const navigate = useNavigate()
   const { patientId } = useParams()
+  const { scheduleId } = useParams()
   
   const [user, setUser] = useState(getUserFromToken())
   const [patients, setPatients] =useState([])
@@ -104,13 +106,20 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
 
     setScheduels(updatedSchedules)
   }
+
+  // for appointment handler ===============================
+
+  const handleAddAppointment = async (formData) => {
+  const newAppointment = await appService.create(scheduleId, formData)
+  setScheduels({...scheduels, appointments: [...scheduels.appointments, newAppointment] })
+ 
+}
  
 
   return (
     <div>
       <Nav user={user} setUser={setUser}/>
       <main className="app-main">
-      <NewApp/>
       <Routes>
 
       // if there is user signed go to dashboard else to landing
@@ -131,6 +140,9 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
         <Route path='/schedules/new' element={<NewScheduel scheduels={scheduels} handleAddScheduel={handleAddScheduel}/>}/>
 
         <Route path='/schedules/:scheduleId' element={<EditSchedule handleUpdateSchedule={handleUpdateSchedule}/>}/>
+
+      
+        <Route path='/schedules/:scheduleId/appointments' element={<NewApp/>}/>
         
         <Route path="*" element={<h2>Page Not Found 👎</h2>} />
       </Routes>
