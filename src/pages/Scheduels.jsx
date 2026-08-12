@@ -3,6 +3,10 @@ import { Routes, Route, useNavigate } from 'react-router'
 import { useParams } from 'react-router'
 import { Link } from 'react-router'
 
+import * as patientService from '../services/patients'
+import * as scheduelService from '../services/schedules'
+import * as appService from '../services/appointments'
+
 const Scheduels = (props) => {
 
     const generate24HourSlots = () => {
@@ -50,7 +54,8 @@ const Scheduels = (props) => {
         {/* The time containers boxes MUST be inside the map block */}
         <div className="time-division">
           {timeSlots.map((time) => {
-            const slotAppointments = scheduel.appointments?.[time] || []
+            const slotAppointments = scheduel.appointments?
+            scheduel.appointments.filter((app) => app.timeSlot === time) : []
             return (
               <div key={time} className="time-container">
                 {/* Time Label Column */}
@@ -62,7 +67,7 @@ const Scheduels = (props) => {
                 {/* Patient Cards Container */}
                 <div className="patient-card-container">
                   {slotAppointments.map((patient, idx) => (
-                    <div key={idx} className="patient-card">
+                    <div className="patient-card">
                       <span>{patient.name || patient.username}</span>
                       <span>CPR: {patient.cpr || patient.CPR}</span>
                     </div>
@@ -77,17 +82,6 @@ const Scheduels = (props) => {
   </div>
             
                  
-{/* 
-            {props.scheduels.map((scheduel) => (
-                <>
-                <p>{scheduel.doctorName} : {scheduel.specialty}</p>
-                <p> {scheduel.shiftStart}-{scheduel.shiftEnd}</p>
-                <Link to={`/schedules/${scheduel._id}`}><button>Edit scheduel</button></Link>
-
-                <hr />
-                
-                </>
-            ))} */}
 
         </main>
     )
