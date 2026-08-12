@@ -140,10 +140,8 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
       // if there is user signed go to dashboard else to landing
       <Route path='/' element={user ? <Dashboard user={user} /> : <Landing />} />
 
-        <Route path='/sign-up' element={<SignUpForm setUser={setUser}/>} />
-
-        <Route path='/sign-in' element={<SignInForm setUser={setUser}/>}/>
-
+      {user ? (
+         <>
         <Route path='/patients' element={ <PatientList patients={patients} handleAddPatient={handleAddPatient} handleDeletePatient={handleDeletePatient}/>}/>
 
       
@@ -160,7 +158,17 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
         <Route path='/schedules/:scheduleId/appointments/:time' element={<NewApp handleAddAppointment={handleAddAppointment} patients={patients}/>}/>
         
         <Route path="*" element={<h2>Page Not Found 👎</h2>} />
+        </>
+      ):(
+        <>
+        <Route path='/sign-up' element={<SignUpForm setUser={setUser}/>} />
+
+        <Route path='/sign-in' element={<SignInForm setUser={setUser}/>}/>
+        </>
+      )}
       </Routes>
+
+       
       </main>
     </div>
   );
