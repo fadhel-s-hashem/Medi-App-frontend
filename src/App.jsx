@@ -19,6 +19,7 @@ import NewScheduel from './pages/NewScheduel';
 import EditSchedule from './pages/EditSchedule';
 import DailySchedule from './pages/DailySchedule';
 import ScheduleTemplate from './pages/ScheduleTemplate';
+import NewApp from './pages/newApp';
 
 const getUserFromToken = () => {
   const token = localStorage.getItem('token')
@@ -109,8 +110,7 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
     <div>
       <Nav user={user} setUser={setUser}/>
       <main className="app-main">
-      {/* <DailySchedule/> */}
-      {/* <ScheduleTemplate/> */}
+      <NewApp/>
       <Routes>
 
       // if there is user signed go to dashboard else to landing

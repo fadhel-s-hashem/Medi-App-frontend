@@ -62,7 +62,7 @@ h1, h2, h3, p {
 }
 
 .blue{
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
 }
 
 .template-card {

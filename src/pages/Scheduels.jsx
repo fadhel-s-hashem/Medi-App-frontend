@@ -42,7 +42,7 @@ const Scheduels = (props) => {
             <div className="doctor-info">
               {scheduel.specialty} | {scheduel.shiftStart}-{scheduel.shiftEnd}
               <br />
-              <Link to={`/schedules/${scheduel._id}`}>Edit</Link>
+              <Link to={`/schedules/${scheduel._id}`}><span  className='blue'>Edit</span></Link>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ const Scheduels = (props) => {
   </div>
             
                  
-
+{/* 
             {props.scheduels.map((scheduel) => (
                 <>
                 <p>{scheduel.doctorName} : {scheduel.specialty}</p>
@@ -84,7 +84,7 @@ const Scheduels = (props) => {
                 <hr />
                 
                 </>
-            ))}
+            ))} */}
 
         </main>
     )
