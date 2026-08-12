@@ -142,7 +142,7 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
         <Route path='/schedules/:scheduleId' element={<EditSchedule handleUpdateSchedule={handleUpdateSchedule}/>}/>
 
       
-        <Route path='/schedules/:scheduleId/appointments' element={<NewApp/>}/>
+        <Route path='/schedules/:scheduleId/appointments' element={<NewApp handleAddAppointment={handleAddAppointment}/>}/>
         
         <Route path="*" element={<h2>Page Not Found 👎</h2>} />
       </Routes>

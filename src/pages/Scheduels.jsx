@@ -54,7 +54,10 @@ const Scheduels = (props) => {
             return (
               <div key={time} className="time-container">
                 {/* Time Label Column */}
+
+                <Link to={`/schedules/${scheduel._id}/appointments/`}>
                 <button className="time-button">{time}</button>
+                </Link>
 
                 {/* Patient Cards Container */}
                 <div className="patient-card-container">

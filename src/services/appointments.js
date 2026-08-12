@@ -1,6 +1,6 @@
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/appointments`
 
-const create = async (AppFormData) => {
+const create = async (scheduleId, AppFormData) => {
   try {
     const res = await fetch(`${BASE_URL}/new`, {
       method: 'POST',
