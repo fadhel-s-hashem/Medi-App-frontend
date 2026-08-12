@@ -21,6 +21,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: var( --color-surface);
+  padding: 5px;
+  position: sticky;
+  top: 0;
 }
 
 nav ul {

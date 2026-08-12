@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router'
 import { useParams } from 'react-router'
 import { Link } from 'react-router'
 
+
 import * as patientService from '../services/patients'
 import * as scheduelService from '../services/schedules'
 import * as appService from '../services/appointments'
@@ -42,11 +43,16 @@ const Scheduels = (props) => {
         <div className="doctorCard">
           <div className="doctorImage">👨‍⚕️</div>
           <div className="doctor-details">
+
             <div className="doctor-info">{scheduel.doctorName}</div>
             <div className="doctor-info">
               {scheduel.specialty} | {scheduel.shiftStart}-{scheduel.shiftEnd}
-              <br />
-              <Link to={`/schedules/${scheduel._id}`}><span  className='blue'>Edit</span></Link>
+
+              <div className="doctor-info2">
+              <span>Appointments: {scheduel.appointments.length}</span>
+              <Link to={`/schedules/${scheduel._id}`}><span  className='blue'>Edit</span>
+</Link>
+              </div>
             </div>
           </div>
         </div>
@@ -79,6 +85,7 @@ const Scheduels = (props) => {
         </div>
       </div>
     ))}
+    
   </div>
             
                  
