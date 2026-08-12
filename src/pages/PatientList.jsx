@@ -26,6 +26,8 @@ const PatientList = (props) => {
     setFormData(initialState)
   }
 
+  
+
 
     return(
         <main>
