@@ -6,10 +6,11 @@ import { Link } from 'react-router'
 const NewApp = (props) => {
 
     const navigate = useNavigate()
+    const { scheduleId, time } = useParams()
 
     const initialState = {
     patient: '',
-    timeSlot: "" ,
+    timeSlot: time ,
     status: 'scheduled',
     notes: '',
     }
@@ -25,7 +26,7 @@ const NewApp = (props) => {
     return(
 
         <main>
-            <h2>New Appointment </h2>
+            <h2>New Appointment at ({formData.timeSlot})</h2>
 
             <form >
         <label>Select Patient</label>
@@ -35,10 +36,10 @@ const NewApp = (props) => {
           value={formData.patient}
           onChange={handleChange}
         >
-          <option value=""> Patients </option>
+          <option value="">  </option>
           {props.patients &&
             props.patients.map((patient) => (
-              <option key={patient._id} value={patient._id}>
+              <option value={patient._id}>
                 {patient.username} (CPR: {patient.CPR})
               </option>
             ))}
@@ -64,7 +65,6 @@ const NewApp = (props) => {
         <button type="submit">CREATE APPOINTMENT</button>
       </form>
          
-        new app page
         </main>
 
     )

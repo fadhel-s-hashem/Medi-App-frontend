@@ -32,8 +32,8 @@ const Scheduels = (props) => {
 
   {/* Main horizontal container for doctors */}
   <div className="schedule-container">
-    {props.scheduels && props.scheduels.map((scheduel) => (
-      <div key={scheduel._id || scheduel.id} className="doctor-card">
+    { props.scheduels.map((scheduel) => (
+      <div  className="doctor-card">
         {/* Top Doctor Profile Header */}
         <div className="doctorCard">
           <div className="doctorImage">👨‍⚕️</div>
@@ -55,7 +55,7 @@ const Scheduels = (props) => {
               <div key={time} className="time-container">
                 {/* Time Label Column */}
 
-                <Link to={`/schedules/${scheduel._id}/appointments/`}>
+                <Link to={`/schedules/${scheduel._id}/appointments/${time}`}>
                 <button className="time-button">{time}</button>
                 </Link>
 
