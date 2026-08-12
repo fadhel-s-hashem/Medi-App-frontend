@@ -1,8 +1,8 @@
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/appointments`
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}`
 
 const create = async (scheduleId, AppFormData) => {
   try {
-    const res = await fetch(`${BASE_URL}/new`, {
+    const res = await fetch(`${BASE_URL}/schedules/${scheduleId}/appointments`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,

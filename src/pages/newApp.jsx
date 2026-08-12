@@ -17,6 +17,12 @@ const NewApp = (props) => {
 
     const [formData, setFormData] = useState(initialState)
 
+     const handleAddAppointment = async (scheduleId, formData) => {
+      const newAppointment = await appService.create(scheduleId, formData)
+      setScheduels({...scheduels, appointments: [...scheduels.appointments, newAppointment] })
+     
+    }
+
     const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
@@ -25,7 +31,7 @@ const NewApp = (props) => {
     e.preventDefault()
     await props.handleAddAppointment(scheduleId, formData)
     navigate('/schedules')
-  }
+}
 
 
  
@@ -42,7 +48,9 @@ const NewApp = (props) => {
           value={formData.patient}
           onChange={handleChange}
         >
-          {/* <option value="">  </option> */}
+            {/* need this to fix the error 👇 */}
+            <option value=""> Choose Patient </option>
+
           {
             props.patients.map((patient) => (
               <option value={patient._id}>
