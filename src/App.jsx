@@ -20,7 +20,7 @@ import NewScheduel from './pages/NewScheduel';
 import EditSchedule from './pages/EditSchedule';
 import DailySchedule from './pages/DailySchedule';
 import ScheduleTemplate from './pages/ScheduleTemplate';
-import NewApp from './pages/newApp';
+import NewApp from './pages/NewApp';
 
 const getUserFromToken = () => {
   const token = localStorage.getItem('token')

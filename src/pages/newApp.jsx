@@ -21,6 +21,12 @@ const NewApp = (props) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await props.handleAddAppointment(scheduleId, formData)
+    navigate('/schedules')
+  }
+
 
  
     return(
@@ -28,7 +34,7 @@ const NewApp = (props) => {
         <main>
             <h2>New Appointment at ({formData.timeSlot})</h2>
 
-            <form >
+            <form onSubmit={handleSubmit}>
         <label>Select Patient</label>
         <select
           required
@@ -36,8 +42,8 @@ const NewApp = (props) => {
           value={formData.patient}
           onChange={handleChange}
         >
-          <option value="">  </option>
-          {props.patients &&
+          {/* <option value="">  </option> */}
+          {
             props.patients.map((patient) => (
               <option value={patient._id}>
                 {patient.username} (CPR: {patient.CPR})
