@@ -19,6 +19,7 @@ const Nav = (props) => {
                     <li><Link className="nav-brand" to="/">Home</Link></li>
                     <li><Link to="/patients">patients</Link></li>
                     <li><Link to="/schedules">schedules</Link></li>
+                    <li><Link to="/schedules/new"> new schedules</Link></li>
                     <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
                 </ul>
                 </>

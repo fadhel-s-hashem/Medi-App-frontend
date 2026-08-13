@@ -2,13 +2,13 @@
   min-height: 100vh;
 }
 
-.app-main {
+/* .app-main {
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 100%;
   padding: 48px 24px;
-}
+} */
 
 @media (max-width: 600px) {
   .app-main {
@@ -21,6 +21,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: var( --color-surface);
+  padding: 5px;
+  position: sticky;
+  top: 0;
 }
 
 nav ul {
@@ -31,6 +34,7 @@ nav ul {
 
 nav a:hover {
   color: var(--color-primary);
+  font-weight: bold;
 }
 
 form {

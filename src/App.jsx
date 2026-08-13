@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 
 import * as patientService from './services/patients'
 import * as scheduelService from './services/schedules'
+import * as appService from './services/appointments'
 
 import './App.css'
 import SignUpForm from './pages/SignUpForm';
@@ -17,6 +18,9 @@ import PatientRedetail from './pages/PatientRedetail';
 import Scheduels from './pages/Scheduels';
 import NewScheduel from './pages/NewScheduel';
 import EditSchedule from './pages/EditSchedule';
+import DailySchedule from './pages/DailySchedule';
+import ScheduleTemplate from './pages/ScheduleTemplate';
+import NewApp from './pages/NewApp';
 
 const getUserFromToken = () => {
   const token = localStorage.getItem('token')
@@ -27,6 +31,7 @@ const getUserFromToken = () => {
 const App = () => {
   const navigate = useNavigate()
   const { patientId } = useParams()
+  const { scheduleId } = useParams()
   
   const [user, setUser] = useState(getUserFromToken())
   const [patients, setPatients] =useState([])
@@ -101,22 +106,39 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
 
     setScheduels(updatedSchedules)
   }
+
+  // for appointment handler ===============================
+  const handleAddAppointment = async (scheduleId, formData) => {
+  try {
+    const updatedSchedule = await appService.create(scheduleId, formData)
+
+    if (!updatedSchedule || updatedSchedule.err) {
+      console.error('Backend error:', updatedSchedule?.err || 'Failed to save')
+      return
+    }
+
+    setScheduels((prevSchedules) =>
+      prevSchedules.map((schedule) =>
+        schedule._id === scheduleId ? updatedSchedule : schedule
+      )
+    )
+  } catch (err) {
+    console.error('Error adding appointment:', err)
+  }
+}
  
 
   return (
     <div>
       <Nav user={user} setUser={setUser}/>
       <main className="app-main">
-      {/* <EditSchedule handleUpdateSchedule={handleUpdateSchedule}/> */}
       <Routes>
 
       // if there is user signed go to dashboard else to landing
       <Route path='/' element={user ? <Dashboard user={user} /> : <Landing />} />
 
-        <Route path='/sign-up' element={<SignUpForm setUser={setUser}/>} />
-
-        <Route path='/sign-in' element={<SignInForm setUser={setUser}/>}/>
-
+      {user ? (
+         <>
         <Route path='/patients' element={ <PatientList patients={patients} handleAddPatient={handleAddPatient} handleDeletePatient={handleDeletePatient}/>}/>
 
       
@@ -128,9 +150,22 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
         <Route path='/schedules/new' element={<NewScheduel scheduels={scheduels} handleAddScheduel={handleAddScheduel}/>}/>
 
         <Route path='/schedules/:scheduleId' element={<EditSchedule handleUpdateSchedule={handleUpdateSchedule}/>}/>
+
+      
+        <Route path='/schedules/:scheduleId/appointments/:time' element={<NewApp handleAddAppointment={handleAddAppointment} patients={patients}/>}/>
         
         <Route path="*" element={<h2>Page Not Found 👎</h2>} />
+        </>
+      ):(
+        <>
+        <Route path='/sign-up' element={<SignUpForm setUser={setUser}/>} />
+
+        <Route path='/sign-in' element={<SignInForm setUser={setUser}/>}/>
+        </>
+      )}
       </Routes>
+
+       
       </main>
     </div>
   );
@@ -138,3 +173,4 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
 
 export default App
 
+// commit befotre go to main

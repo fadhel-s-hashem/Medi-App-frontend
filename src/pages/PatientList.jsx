@@ -26,10 +26,12 @@ const PatientList = (props) => {
     setFormData(initialState)
   }
 
+  
+
 
     return(
-        <main>
-        <section className=''>
+        <main className='Plist'>
+        <section className='Pcard'>
             <h2>New Patient</h2>
       <form onSubmit={handleSubmit}>
         <label>Full Name</label>
@@ -87,17 +89,17 @@ const PatientList = (props) => {
       </form>
         </section>
 
-        <section>
+        <section className='patientListSection'>
             {props.patients.map((patient)=> (
-                <>
+                <div className='.patient-item-card'>
                 { console.log(patient._id)}
                 <Link to={`/patients/${patient._id}`}>
                 <h3>👤{patient.username} 🪪{patient.CPR} </h3>
-                <button onClick={() =>                                  props.handleDeletePatient(patient._id)}
-                    >Delete</button>
-                    <hr />
-                    </Link>
-                </>
+                </Link>
+                <button className="delete-btn" onClick={() =>                                  props.handleDeletePatient(patient._id)}
+                    >Delete</button >
+
+                </div>
             ))}
         </section>
         </main>

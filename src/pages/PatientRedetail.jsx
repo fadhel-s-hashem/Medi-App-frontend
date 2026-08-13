@@ -49,9 +49,51 @@ const PatientRedetail = (props)=> {
   }
 
 
+
     if (!patient) return <main><div className="loader"></div></main>
     return(
         <main>
+           <section className="patient-profile-card">
+        <div className="profile-header">
+          <div className="avatar-badge">
+            {patient.gender === 'male' ? '🧔🏻‍♂️' : '👩🏻'}
+          </div>
+          <div className="profile-title">
+            <h2>{patient.username}</h2>
+          </div>
+        </div>
+
+        <hr/>
+        <br />
+
+        <div className="profile-grid">
+          <div className="info-item">
+            <span className="info-label">CPR Number</span>
+            <span className="info-value highlight">{patient.CPR}</span>
+          </div>
+
+          <div className="info-item">
+            <span className="info-label">Phone Number</span>
+            <span className="info-value">{patient.phoneNumber || 'N/A'}</span>
+          </div>
+
+          <div className="info-item">
+            <span className="info-label">Gender</span>
+            <span className="info-value capitalize">{patient.gender}</span>
+          </div>
+
+          <div className="info-item">
+            <span className="info-label">Date of Birth</span>
+            <span className="info-value">
+              {patient.birthDate
+                ? new Date(patient.birthDate).toLocaleDateString()
+                : 'Not provided'}
+            </span>
+          </div>
+        </div>
+      </section>
+
+          <br />
             
         <section className=''>
             <h2>Edit <span className='blue'>{patient.username}</span></h2>
