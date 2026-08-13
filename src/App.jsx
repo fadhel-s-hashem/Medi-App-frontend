@@ -112,11 +112,6 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
   try {
     const updatedSchedule = await appService.create(scheduleId, formData)
 
-    if (!updatedSchedule || updatedSchedule.err) {
-      console.error('Backend error:', updatedSchedule?.err || 'Failed to save')
-      return
-    }
-
     setScheduels((prevSchedules) =>
       prevSchedules.map((schedule) =>
         schedule._id === scheduleId ? updatedSchedule : schedule

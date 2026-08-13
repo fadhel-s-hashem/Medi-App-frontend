@@ -22,15 +22,10 @@ const Dashboard = (props) => {
   }, [])
 
     return(
-        <section>
-            <h1> wlcome, {props.user.username}</h1>
+        <section className="centerText">
+            <h1 >wlcome, <span className="blue">{props.user.username}</span></h1>
 
             <p className="error">{message}</p>
-      {/* <ul>
-        {users.map((user) => (
-          <li>{user.username}</li>
-        ))}
-      </ul> */}
             
         </section>
     )

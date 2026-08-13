@@ -27,7 +27,7 @@ body {
   margin: 0;
   background-color: var(--color-background);
   color: var(--color-text);
-   /* background: #2A7B9B; */
+   background: #f2f4f4;
   /* background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%); */
 }
 
@@ -129,7 +129,7 @@ h1, h2, h3, p {
 }
 
 .time-division {
-  max-height: 550px;
+  max-height: 700px;
   overflow-y: auto;
 }
 
@@ -321,4 +321,11 @@ form input, textarea, select {
 .delete-btn:hover {
   background-color: var(--color-error);
   color: white;
+}
+
+.centerText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12%;
 }
