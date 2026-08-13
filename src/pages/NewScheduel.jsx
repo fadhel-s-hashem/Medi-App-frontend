@@ -30,7 +30,7 @@ const NewScheduel= (props) => {
         <main>
            
       <h2>Create Doctor Schedule</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <label>Doctor Name</label>
         <input
           required

@@ -18,8 +18,8 @@ import PatientRedetail from './pages/PatientRedetail';
 import Scheduels from './pages/Scheduels';
 import NewScheduel from './pages/NewScheduel';
 import EditSchedule from './pages/EditSchedule';
-import DailySchedule from './pages/DailySchedule';
-import ScheduleTemplate from './pages/ScheduleTemplate';
+
+
 import NewApp from './pages/NewApp';
 
 const getUserFromToken = () => {
