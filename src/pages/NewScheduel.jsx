@@ -27,7 +27,8 @@ const NewScheduel= (props) => {
   }
 
     return(
-        <main>
+      <div className='centerCard'>
+        <main className='Pcard'>
            
       <h2>Create Doctor Schedule</h2>
       <form onSubmit={handleSubmit} >
@@ -77,6 +78,7 @@ const NewScheduel= (props) => {
         <button type="submit">CREATE SCHEDULE</button>
       </form>
         </main>
+        </div>
     )
 }
 

@@ -53,6 +53,7 @@ const PatientRedetail = (props)=> {
     if (!patient) return <main><div className="loader"></div></main>
     return(
         <main>
+          <br />
            <section className="patient-profile-card">
         <div className="profile-header">
           <div className="avatar-badge">

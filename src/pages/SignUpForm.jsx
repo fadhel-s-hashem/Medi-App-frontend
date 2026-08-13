@@ -44,6 +44,7 @@ const isFormValid = () => {
 }
 
     return(
+        <main className="centerText">
         <section className='card'>
             <header>
             <h1>sign up</h1>
@@ -70,6 +71,7 @@ const isFormValid = () => {
             </form>
 
         </section>
+        </main>
     )
 }
 

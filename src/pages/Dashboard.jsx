@@ -23,7 +23,7 @@ const Dashboard = (props) => {
 
     return(
         <section className="centerText">
-            <h1 >wlcome, <span className="blue">{props.user.username}</span></h1>
+            <h1 >Welcome, <span className="blue">{props.user.username}</span></h1>
 
             <p className="error">{message}</p>
             

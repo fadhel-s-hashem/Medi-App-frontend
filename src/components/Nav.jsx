@@ -14,16 +14,18 @@ const Nav = (props) => {
         <nav>
             { props.user ? (
                 <>
-                    <li>Welcome, <span className="blue">{props.user.username}</span></li>
+                    <li>📚 <span className="blue">{props.user.username}</span></li>
                 <ul>
                     <li><Link className="nav-brand" to="/">Home</Link></li>
                     <li><Link to="/patients">patients</Link></li>
                     <li><Link to="/schedules">schedules</Link></li>
                     <li><Link to="/schedules/new"> new schedules</Link></li>
-                    <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
+                    <li><Link className="redHoover" to='/' onClick={handleSignOut}>Sign Out</Link></li>
                 </ul>
                 </>
             ) : (
+                <>
+                 <li>🏥 <span className="blue">MediApp</span></li>
             <ul>
                 <li>
                     <Link to='/'>Home</Link>
@@ -35,6 +37,8 @@ const Nav = (props) => {
                     <Link to="/sign-in">Sign in</Link>
                 </li>
             </ul>
+                </>
+
             ) }
 
         </nav>

@@ -32,10 +32,15 @@ nav ul {
   list-style: none;
 }
 
+.redHoover:hover{
+  color: var(--color-error);
+  font-weight: bold;
+}
 nav a:hover {
   color: var(--color-primary);
   font-weight: bold;
 }
+
 
 form {
   display: flex;

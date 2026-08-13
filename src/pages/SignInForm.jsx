@@ -32,7 +32,8 @@ const SignInForm = (props) => {
     }
 
     return(
-        <section className="card">
+        <main className="centerText">
+        <section className="card ">
             <header>
             <h1>Sign In</h1>
             <p className="error">{message}</p>
@@ -49,6 +50,7 @@ const SignInForm = (props) => {
                 </div>
             </form>
         </section>
+        </main>
     )
 }
 

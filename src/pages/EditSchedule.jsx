@@ -39,7 +39,8 @@ const EditSchedule = (props) => {
   }
 
     return(
-        <main>
+      <div className='centerCard'>
+        <main className='Pcard'>
       <h2>Edit Doctor </h2>
       <form onSubmit={handleSubmit}>
         <label>Doctor Name</label>
@@ -90,6 +91,7 @@ const EditSchedule = (props) => {
         <button type="submit">SAVE CHANGES</button>
       </form>
     </main>
+    </div>
     )
 }
 
