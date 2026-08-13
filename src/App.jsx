@@ -110,16 +110,13 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
   // for appointment handler ===============================
   const handleAddAppointment = async (scheduleId, formData) => {
   try {
-    // 1. Store the backend response in updatedSchedule
     const updatedSchedule = await appService.create(scheduleId, formData)
 
-    // Check if the backend returned an error object instead of a schedule
     if (!updatedSchedule || updatedSchedule.err) {
       console.error('Backend error:', updatedSchedule?.err || 'Failed to save')
       return
     }
 
-    // 2. Map through state and replace the old schedule with updatedSchedule
     setScheduels((prevSchedules) =>
       prevSchedules.map((schedule) =>
         schedule._id === scheduleId ? updatedSchedule : schedule
@@ -176,3 +173,4 @@ const handleUpdateSchedule = async (scheduleId, formData) => {
 
 export default App
 
+// commit befotre go to main
