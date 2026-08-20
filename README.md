@@ -110,8 +110,8 @@ Open your browser and navigate to `http://localhost:5173`.
 
 ## Future Enhancements
 
-* Automatic SMS/Email appointment reminders for registered patients.
-* Export patient appointment histories and daily doctor schedules to PDF.
+* Create delete schedule button 
+* add an show, update , and delete options for appointment
 * Medical imaging reference guide integration for diagnostic technicians.
 * Role-based access control (Admin, Doctor, Receptionist).
 
