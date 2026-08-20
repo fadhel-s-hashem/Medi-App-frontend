@@ -36,8 +36,9 @@ Before running this project locally, ensure you have the following installed:
 ## Installation and Setup
 ## Frontend
 ### 1. download this Repository or clone it
+[Medi-App-frontend](https://github.com/fadhel-s-hashem/Medi-App-frontend)
 ```bash
-git clone [https://github.com/fadhel-s-hashem/Medi-App-frontend](https://github.com/fadhel-s-hashem/Medi-App-frontend)
+git clone https://github.com/fadhel-s-hashem/Medi-App-frontend
 ```
 
 ### 2.Navigate to the directory and install dependencies
@@ -59,8 +60,9 @@ npm run dev
 ---
 ## Backend
 ### 1. Clone the repository of back end
+[Mwdi-App-backend]([https://github.com/YourUsername/MediApp.git](https://github.com/fadhel-s-hashem/Medi-App-backend)](https://github.com/fadhel-s-hashem/Medi-App-backend))
 ```bash
-git clone [[https://github.com/YourUsername/MediApp.git]([https://github.com/YourUsername/MediApp.git](https://github.com/fadhel-s-hashem/Medi-App-backend)](https://github.com/fadhel-s-hashem/Medi-App-backend))
+git clone https://github.com/fadhel-s-hashem/Medi-App-backend
 ```
 
 ### 2.Navigate 
