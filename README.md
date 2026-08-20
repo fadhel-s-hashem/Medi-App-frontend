@@ -2,9 +2,7 @@
 
 A robust, full-stack healthcare platform built with the MERN stack (MongoDB, Express, React, Node.js). This application enables medical facilities to digitally manage doctor shift schedules, log patient profiles, book real-time appointments across 24-hour time slots, and maintain reference documentation for diagnostic procedures.
 
-Live Demo
-
-[Deployed Website](https://your-deployed-site.com)  
+![MediApp Screenshot]()
 
 ---
 
@@ -72,7 +70,7 @@ Frontend Setup
 Open a new terminal window
 ```bash
 # Navigate to the frontend directory
-cd gearhead-frontend
+cd Medi-App-frontend
 
 # Install dependencies
 npm install
