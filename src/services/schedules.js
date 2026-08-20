@@ -13,7 +13,7 @@ const index = async () => {
 
 const create = async (scheduleFormData) => {
   try {
-    const res = await fetch(`${BASE_URL}/new`, {
+    const res = await fetch(`${BASE_URL}`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
