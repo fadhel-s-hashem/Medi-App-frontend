@@ -1,8 +1,8 @@
-# MediApp - Clinical Radiology & Schedule Management
+# MediApp
 
-A robust, full-stack healthcare platform built with the MERN stack (MongoDB, Express, React, Node.js). This application enables medical facilities to digitally manage doctor shift schedules, log patient profiles, book real-time appointments across 24-hour time slots, and maintain reference documentation for diagnostic procedures.
+MediApp is a robust, full-stack healthcare platform built with the MERN stack (MongoDB, Express, React, Node.js). This application enables medical facilities to digitally manage doctor shift schedules, log patient profiles, book real-time appointments across 24-hour time slots, and maintain reference documentation for diagnostic procedures.
 
-![MediApp Screenshot]()
+MediApp Screenshot<img width="1920" height="854" alt="Screenshot 2026-08-20 162948" src="https://github.com/user-attachments/assets/390d2230-5f10-4937-b6bf-1de8918695d4" />
 
 ---
 
@@ -34,19 +34,39 @@ Before running this project locally, ensure you have the following installed:
 ---
 
 ## Installation and Setup
-
-This project uses a decoupled architecture with separate frontend and backend directories.
-
-### 1. Clone the repository
+## Frontend
+### 1. download this Repository or clone it
 ```bash
-git clone [https://github.com/YourUsername/MediApp.git](https://github.com/YourUsername/MediApp.git)
-cd MediApp
+git clone [https://github.com/fadhel-s-hashem/Medi-App-frontend](https://github.com/fadhel-s-hashem/Medi-App-frontend)
 ```
 
-### 2.Backend Setup 
+### 2.Navigate to the directory and install dependencies
+```
+cd Medi-App-frontend
+npm install
+```
+
+### 3. Environment configuration
+Create a `.env` file in the `Medi-App-frontend` directory
+```
+VITE_BACK_END_SERVER_URL=http://localhost:3000
+```
+
+### 4. Start the React development server
+```
+npm run dev
+```
+---
+## Backend
+### 1. Clone the repository of back end
+```bash
+git clone [[https://github.com/YourUsername/MediApp.git]([https://github.com/YourUsername/MediApp.git](https://github.com/fadhel-s-hashem/Medi-App-backend)](https://github.com/fadhel-s-hashem/Medi-App-backend))
+```
+
+### 2.Navigate 
 ```
 # Navigate to the backend directory
-cd backend
+cd Medi-App-backend
 
 # Install dependencies
 npm install
@@ -62,30 +82,7 @@ JWT_SECRET=your_jwt_secret_key
 ```
 npm run dev
 ```
-
 ---
-
-Frontend Setup
-
-Open a new terminal window
-```bash
-# Navigate to the frontend directory
-cd Medi-App-frontend
-
-# Install dependencies
-npm install
-```
-
-Create a .env file in the gearhead-frontend directory
-```
-VITE_BACK_END_SERVER_URL=http://localhost:3000
-```
-
-Start the React development server
-```bash
-npm run dev
-```
-
 *. Access the app**
 
 Open your browser and navigate to `http://localhost:5173`.
